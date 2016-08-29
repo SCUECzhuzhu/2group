@@ -18,7 +18,7 @@ date_default_timezone_set("PRC");
 $time=date("Y-m-d H:i:s");
 $hour=date("H");
 
-//查看用户名和密码是否正确
+//查看用户名是否存在
 $sql = "select name from `user_data` where name='%s' limit 1";
 $sql = sprintf($sql, $name);
 $result = $db->select($sql);
@@ -30,7 +30,7 @@ if (!count($result)){
     exit;
 }
 
-//密码或用户名正确
+//得到姓名id 插入数据
 else{
     $sql_test="select user_id from user_data where name='%s'";
 	$sql_test=sprintf($sql_test,$name);
